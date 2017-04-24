@@ -1,0 +1,42 @@
+{
+  "name": "weieditor",
+  "version": "1.0.0",
+  "description": "md2html for weixin",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilins/weieditor.git"
+  },
+  "keywords": [
+    "weixin",
+    "markdown"
+  ],
+  "author": "lule0102@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/lilins/weieditor#readme",
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "css-loader": "^0.28.0",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "file-loader": "^0.11.1",
+    "markdown": "^0.5.0",
+    "morgan": "~1.8.1",
+    "path": "^0.12.7",
+    "pug": "~2.0.0-beta11",
+    "requirejs": "^2.3.3",
+    "serve-favicon": "~2.4.2",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.4.1"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "style-loader": "^0.16.1",
+    "url-loader": "^0.5.8"
+  }
+}
