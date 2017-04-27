@@ -29,10 +29,16 @@ module.exports = g;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-// super simple module for the most common nodejs use case.
-exports.markdown = __webpack_require__(9);
-exports.parse = exports.markdown.toHTML;
+var markdown = __webpack_require__(9).markdown;
 
+module.exports={
+    md: function(){
+        return markdown;
+    },
+    test: function(){
+        return "x";
+    }
+}
 
 /***/ }),
 /* 2 */
@@ -44,7 +50,7 @@ exports.parse = exports.markdown.toHTML;
 var content = __webpack_require__(3);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(16)(content, {});
+var update = __webpack_require__(17)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -2179,6 +2185,15 @@ module.exports = Array.isArray || function (arr) {
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
+// super simple module for the most common nodejs use case.
+exports.markdown = __webpack_require__(10);
+exports.parse = exports.markdown.toHTML;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // Released under MIT license
 // Copyright (c) 2009-2010 Dominic Baggott
 // Copyright (c) 2009-2010 Ash Berlin
@@ -2308,7 +2323,7 @@ function mk_block_toSource() {
 
 // node
 function mk_block_inspect() {
-  var util = __webpack_require__(14);
+  var util = __webpack_require__(15);
   return "Markdown.mk_block( " +
           util.inspect(this.toString()) +
           ", " +
@@ -3908,7 +3923,7 @@ function merge_text_nodes( jsonml ) {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -4094,7 +4109,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 
@@ -4189,7 +4204,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -4218,7 +4233,7 @@ if (typeof Object.create === 'function') {
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = function isBuffer(arg) {
@@ -4229,7 +4244,7 @@ module.exports = function isBuffer(arg) {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {// Copyright Joyent, Inc. and other Node contributors.
@@ -4757,7 +4772,7 @@ function isPrimitive(arg) {
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = __webpack_require__(13);
+exports.isBuffer = __webpack_require__(14);
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
@@ -4801,7 +4816,7 @@ exports.log = function() {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = __webpack_require__(12);
+exports.inherits = __webpack_require__(13);
 
 exports._extend = function(origin, add) {
   // Don't do anything if add isn't an object
@@ -4819,36 +4834,24 @@ function hasOwnProperty(obj, prop) {
   return Object.prototype.hasOwnProperty.call(obj, prop);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(10)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(11)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var markdown = __webpack_require__(1).markdown;
+var md = __webpack_require__(1);
 __webpack_require__(2);
 
 $('#text').bind('keyup',function(){
     var src = $('#text').val();
-    var html_content = markdown.toHTML(src);
+    var html_content = md.md().toHTML(src);
     var str = $(html_content);
     $('#show').html(str);
-    // $.ajax({
-    //      type: "POST",
-    //      url: "/convert",
-    //      data: {text:src},
-    //      dataType: "json",
-    //      success: function(data){
-    //          console.log(data.text);
-    //          var str = $(data.text);
-    //      	    $('#show').html(str);
-    //       }
-    //  });
-
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -4885,7 +4888,7 @@ var stylesInDom = {},
 	singletonElement = null,
 	singletonCounter = 0,
 	styleElementsInsertedAtTop = [],
-	fixUrls = __webpack_require__(11);
+	fixUrls = __webpack_require__(12);
 
 module.exports = function(list, options) {
 	if(typeof DEBUG !== "undefined" && DEBUG) {
@@ -5144,4 +5147,4 @@ function updateLink(linkElement, options, obj) {
 
 
 /***/ })
-],[15]);
+],[16]);

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --content-base build"
   },
   "repository": {
     "type": "git",
@@ -32,11 +34,14 @@
     "requirejs": "^2.3.3",
     "serve-favicon": "~2.4.2",
     "style-loader": "^0.16.1",
-    "webpack": "^2.4.1"
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "devDependencies": {
+    "html-webpack-plugin": "^2.28.0",
     "jsx-loader": "^0.13.2",
     "style-loader": "^0.16.1",
-    "url-loader": "^0.5.8"
+    "url-loader": "^0.5.8",
+    "webpack-dev-server": "^2.4.4"
   }
 }
